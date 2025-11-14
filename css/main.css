@@ -270,3 +270,50 @@ a:hover {
   transform: scale(2);
   transition: all .5s ease-in-out;
 }
+
+/* Mobile layout for project cards: Image → Title → Content */
+@media screen and (max-width: 767px) {
+
+  /* Each project item becomes a vertical flex container */
+  .projects-list > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    margin-bottom: 24px;
+    padding-left: 0;
+  }
+
+  /* 1. Project Image */
+  .projects-list .project-image {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    float: none;              /* kill desktop floats */
+    margin: 0 0 12px 0;       /* space under image */
+  }
+
+  /* 2. Project Title */
+  .projects-list .project-title {
+    order: 2;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+  }
+
+  /* 3. Project content */
+  .projects-list .project-content {
+    order: 3;
+    margin: 0;
+    padding: 12px;
+    height: auto;
+  }
+
+  /* Remove the big desktop side offsets on mobile */
+  .project-content#project-left-content,
+  .project-content#project-right-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
